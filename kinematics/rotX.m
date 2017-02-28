@@ -1,4 +1,4 @@
-function [out]=RotX(theta)
+function [out] = rotX(theta)
   % Author: Howard Chen
   % 3x3 Rotation Matrix around X-axis (right-handed) 
   % See: https://en.wikipedia.org/wiki/Rotation_matrix
