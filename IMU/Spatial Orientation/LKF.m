@@ -9,6 +9,7 @@ function [ out ] = LKF(measureData,processData,dT, measureNoise,processNoise,ca,
 %   processData: n x 3 array containing angular rate measurements (gyroscope)
 %   measureNoise: measurement noise
 %   processNoise: process noise
+%   dT: Sampling period (seconds)
 %   ca, cb: Gauss Markov Parameters
 %
 %   Author: Howard Chen
