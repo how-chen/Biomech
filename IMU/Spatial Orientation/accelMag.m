@@ -3,6 +3,7 @@ function [ q ] = accelMag( accel,mag)
 %   calculations is done in yaw-pitch-roll and converted to quaternions
 %   accel: nx3 vector with accelerometer measurements (gravity vector)
 %   mag: nx3 vector with magnetometer measurements (magetic north vector) 
+%   q: nx4 quaternion rotation vector (q1 is real)
 %
 %   Author: Howard Chen
 %   Date Created: 3/2/2017
