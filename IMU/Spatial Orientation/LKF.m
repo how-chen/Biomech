@@ -1,4 +1,4 @@
-function [ out ] = LKF(measureData,processData, freq, measureNoise,processNoise,ca,cb)
+function [ out ] = LKF(processData,measureData, freq, processNoise, measureNoise,ca,cb)
 %LKF Linear kalman filter
 %   Implementation of the code in the following paper: 
 %   Ligorio, G., & Sabatini, A. M. (2015). A novel Kalman filter for human motion 
@@ -11,6 +11,9 @@ function [ out ] = LKF(measureData,processData, freq, measureNoise,processNoise,
 %   processNoise: process noise
 %   dT: Sampling period (seconds)
 %   ca, cb: Gauss Markov Parameters
+%   output: n x 6 vector 
+%           col 1 to 3: gravity (local frame) 
+%           col 4 to 6: acceleration (local frame) 
 %
 %   Author: Howard Chen
 
@@ -45,5 +48,10 @@ for i=1:length(measurementData);
     x = x+K*(measurementData(i,:)'-H*x); 
     P = (eye(6)-K*H)*P; 
     out(i,:) = x'; 
+end
+
+function [ wx ] = skew( a )
+    % Skew symmetric matrix
+    wx = [0 -a(3) a(2); a(3) 0 -a(1); -a(2) a(1) 0];
 end
 
