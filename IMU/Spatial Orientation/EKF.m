@@ -1,4 +1,12 @@
 function [ out ]= EKF(gyro,accel,mag,freq,gyroNoise,accelNoise,magNoise,ca,cb)
+% EKF Function
+% Author: Howard Chen
+% Date: 8/5/16
+% Update: 12/16/16
+% output: 1:4-  quaternion (q1 is real)
+%         5:7-  gyroscope bias
+%         8:10- acceleration (local frame)
+%
 %Sampling Period
 dT=1/freq;
 
