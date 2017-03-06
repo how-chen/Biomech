@@ -25,29 +25,30 @@ Q = eye(6);
 Q(1:3,1:3) = processNoise^2.*eye(3); 
 
 % Measurement Covariance Matrix
-R = accelNoise^2.*eye(3); 
+R = measureNoise^2.*eye(3); 
 
 A = zeros(6,6);
 P = zeros(6,6);
 W = zeros(6,6); 
 H = [eye(3),eye(3)]; 
 x = zeros(6,1); 
-x(1:3) = measurementData(1,:)'; 
-out = zeros(length(measurementData),6);
+x(1:3) = measureData(1,:)'; 
+out = zeros(length(measureData),6);
 
-for i=1:length(measurementData); 
-    A(1:3,1:3) = expm(- skew(processData(i,:)).*dT);  
-    A(4:6,4:6) = ca.*eye(3); 
-    x = A*x; 
+    for i=1:length(measureData); 
+        A(1:3,1:3) = expm(- skew(processData(i,:)).*dT);  
+        A(4:6,4:6) = ca.*eye(3); 
+        x = A*x; 
 
-    W(1:3,1:3) = skew(x(1:3).*dT); 
-    W(4:6,4:6) = cb.*eye(3); 
-    P = A*P*A'+W*Q*W'; 
+        W(1:3,1:3) = skew(x(1:3).*dT); 
+        W(4:6,4:6) = cb.*eye(3); 
+        P = A*P*A'+W*Q*W'; 
 
-    K = P*H'*(H*P*H'+R)^-1; 
-    x = x+K*(measurementData(i,:)'-H*x); 
-    P = (eye(6)-K*H)*P; 
-    out(i,:) = x'; 
+        K = P*H'*(H*P*H'+R)^-1; 
+        x = x+K*(measureData(i,:)'-H*x); 
+        P = (eye(6)-K*H)*P; 
+        out(i,:) = x'; 
+    end
 end
 
 function [ wx ] = skew( a )
