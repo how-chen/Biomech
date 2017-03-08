@@ -20,8 +20,8 @@ dT = 1/freq;
 aPitch = atan(-accel(:,1)./sqrt(accel(:,2).^2+accel(:,3).^2));
 aRoll = atan(accel(:,2)./accel(:,3));
 
-cPitch =0;
-cRoll = 0; 
+cPitch = aPitch(1);
+cRoll = aRoll(1); 
 for i=1:ln
     cPitch = (1-alpha(1))*(cPitch+(gyro(i,2)*cos(cRoll)-gyro(i,3)*sin(cRoll))*dT)+alpha(1)*aPitch(i);  
     cRoll = (1-alpha(2))*(cRoll+(gyro(i,1)+gyro(i,2)*sin(cRoll)*tan(cPitch)+gyro(i,3)*cos(cRoll)*tan(cPitch))*dT)+alpha(2)*aRoll(i);
