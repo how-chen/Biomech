@@ -1,8 +1,8 @@
-function [ out ]= EKF(gyro,accel,mag,freq,gyroNoise,accelNoise,magNoise,ca,cb)
+function [ out ]= EKF(gyro,accel,mag,freq,gyroNoise,accelNoise,gyroBias,magNoise,ca,cb)
 % EKF Function
 % Author: Howard Chen
 % Date: 8/5/16
-% Update: 12/16/16
+% Update: 3/17/16
 % output: 1:4-  quaternion (q1 is real)
 %         5:7-  gyroscope bias
 %         8:10- acceleration (local frame)
@@ -153,6 +153,5 @@ for i=1:1:length(accel);
     %normalize quaternion
     n=sqrt(x(1).^2+x(2).^2+x(3).^2+x(4).^2);
     x(1:4)=x(1:4)./n;
-    out(:,i)=x';
+    out(i,:)=x';
 end
-
