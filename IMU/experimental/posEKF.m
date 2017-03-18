@@ -1,4 +1,6 @@
 function [ out ]= posEKF(gyro,accel,mag,freq,gyroNoise,gyroBias,accelNoise,magNoise,ca,cb)
+% Author: Howard Chen
+
 %Sampling Period
 dT=1/freq;
 
