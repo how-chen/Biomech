@@ -1,5 +1,5 @@
 function [ output_args ] = coord(a,l)
-%PLOTVEC Summary of this function goes here
+%COORD Summary of this function goes here
 %   Detailed explanation goes here
 a=a*[l,0,0,0;
     0,l,0,0;
