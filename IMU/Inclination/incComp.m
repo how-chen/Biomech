@@ -17,8 +17,8 @@ quat = zeros(ln,4);
 dT = 1/freq; 
 
 %calculate pitch and roll from accelerometer
-aPitch = atan(-accel(:,1)./sqrt(accel(:,2).^2+accel(:,3).^2));
-aRoll = atan(accel(:,2)./accel(:,3));
+aPitch = atan2(-accel(:,1),sqrt(accel(:,2).^2+accel(:,3).^2)); %pitch
+aRoll = atan2(accel(:,2),accel(:,3));  %roll
 
 cPitch = aPitch(1);
 cRoll = aRoll(1); 
