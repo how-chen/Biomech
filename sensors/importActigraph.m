@@ -2,6 +2,9 @@ function [ data ] = importActigraph(PathName,FileName)
 %ACTIGRAPHTOIMU Imports Actigraph Link Files 
 %Author: Howard Chen
 %Date: 3-29-17
+% data(:,1:3) = accelerometer (m/s^2)
+% data(:,4:6) = gyroscope (rad/s)
+% data(:,7:9) = magnetometer (uT)
 
 datafile=csvread(strcat(PathName,FileName),11,1);
 
