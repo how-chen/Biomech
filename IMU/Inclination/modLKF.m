@@ -20,7 +20,7 @@ function [ out ] = modLKF(gyro, accel, freq, gyroNoise, gyroBias, accelNoise,ca,
 %   output: n x 9 vector 
 %           col 1 to 3: gravity (local frame) 
 %           col 4 to 6: acceleration (local frame) 
-%           col 7 to 9: acceleration (local frame)
+%           col 7 to 9: gyroscope bias
 %   Author: Howard Chen
 
 % Sampling period
