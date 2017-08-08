@@ -1,4 +1,4 @@
-function [ out ] = modLKF(gyro, accel, freq, gyroNoise, gyroBias, accelNoise,ca,cb)
+function [ out ] = accelKF(gyro, accel, freq, gyroNoise, gyroBias, accelNoise,ca,cb)
 %LKF Linear kalman filter
 %   Adopted from the code in the following paper: 
 %   Ligorio, G., & Sabatini, A. M. (2015). A novel Kalman filter for human motion 
