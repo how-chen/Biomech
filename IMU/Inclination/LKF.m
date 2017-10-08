@@ -1,5 +1,12 @@
 function [ out ] = LKF(processData,measureData, freq, processNoise, measureNoise,ca,cb)
 %LKF Linear kalman filter
+%
+%   Code used in the following Paper:
+%   Chen, Howard, Mark C. Schall Jr, and Nathan Fethke. "Effects of Movement Speed 
+%   and Magnetic Disturbance on the Accuracy of Inertial Measurement Units." Proceedings 
+%   of the Human Factors and Ergonomics Society Annual Meeting. Vol. 61. No. 1. Sage CA: 
+%   Los Angeles, CA: SAGE Publications, 2017.
+%
 %   Implementation of the code in the following paper: 
 %   Ligorio, G., & Sabatini, A. M. (2015). A novel Kalman filter for human motion 
 %   tracking with an inertial-based dynamic inclinometer. 
